@@ -10,6 +10,8 @@
 #import "RNSplashScreen.h"
 #import <React/RCTBridge.h>
 
+const LOADING_VIEW_ZPOSITION = 1000;
+
 static bool addedJsLoadErrorObserver = false;
 static UIView* containerView = nil;
 static UIView* loadingView = nil;
@@ -36,6 +38,7 @@ RCT_EXPORT_MODULE(SplashScreen)
         CGRect frame = rootView.frame;
         frame.origin = CGPointMake(0, 0);
         loadingView.frame = frame;
+        loadingView.layer.zPosition = LOADING_VIEW_ZPOSITION;
     }
 
     [loadingView removeFromSuperview];
